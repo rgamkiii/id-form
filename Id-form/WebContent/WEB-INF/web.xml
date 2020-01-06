@@ -1,21 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<element>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>StudentProjectServlet</display-name>
-  <welcome-file-list>
+  
+  <context-param>
+  	<param-name>DB_USER</param-name>
+  	<param-value>root</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>DB_PASSWORD</param-name>
+  	<param-value></param-value>
+  </context-param>
+  <context-param>
+  	<param-name>DB_URL</param-name>
+  	<param-value>jdbc:mysql://localhost:3306/student_project</param-value>
+  </context-param>
+  
+  <!--welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+  </welcome-file-list-->
+  
   <servlet>
-  	<display-name>Id-FormServlet</display-name>
-  	<servlet-name>Id-FormServlet</servlet-name>
-  	<servlet-class>testServlets.IdForm</servlet-class>
+  	<servlet-name>Id-Form</servlet-name>
+  	<servlet-class>testServlets.IdFormServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-  	<servlet-name>Id-FormServlet</servlet-name>
+  
+  <!--servlet-mapping>
+  	<servlet-name>Id-Form</servlet-name>
   	<url-pattern>/IdForm</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping-->
+  
+  <listener>
+  	<listener-class>testListeners.IdFormServletContextListener</listener-class>
+  </listener>
+  
 </web-app>
+</element>
